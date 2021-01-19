@@ -49,7 +49,17 @@ namespace LinkedListExample.Lib
             {
                 _head.Append(v);
             }
+        }
 
+        public bool Delete(int v)
+        {
+            if (_head == null)
+                return true;
+            else if (_head._value == v) {
+                _head = _head._next;
+                return false;
+            }
+            return _head.Delete(v);
         }
 
         public string ToStr
@@ -124,6 +134,18 @@ namespace LinkedListExample.Lib
                 }
 
             }
+        }
+
+        public bool Delete(int v)
+        {
+            if (_next == null)
+                return false;
+            else if (_next != null && _next._value == v)
+            {
+                _next = _next._next; // Here we are linking the nodes from either side of v
+                return true;
+            }
+            return _next.Delete(v);
         }
     }
 }

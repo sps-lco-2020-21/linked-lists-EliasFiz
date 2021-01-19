@@ -44,5 +44,16 @@ namespace LinkedListExample.Tests
             Assert.AreEqual("{5, 7, 8, 9}", ill.ToStr);
         }
 
+        [TestMethod]
+        public void TestDelete()
+        {
+            var ill = new IntegerLinkedList(5);
+            ill.Append(7);
+            ill.Append(8);
+            ill.Delete(7);
+            ill.Append(9);
+            Assert.AreEqual("{5, 8, 9}", ill.ToStr); // I found it easier to use ToStr to test my delete
+        }
+
     }
 }
